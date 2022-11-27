@@ -41,6 +41,12 @@ class BaseController extends Controller {
         return view("$this->view" . ".create");
     }
 
+    public function show(Request $request, $id) {
+        $record = ($this->model)::findOrFail($id);
+
+        return view("$this->view" . ".show", compact("record"));
+    }
+
     public function edit(Request $request, $id) {
         $record = ($this->model)::findOrFail($id);
         return view("$this->view" . ".edit", compact("record"));
