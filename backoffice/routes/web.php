@@ -23,3 +23,7 @@ Route::resource('users', UserController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', function () {
+    auth()->logout();
+    return back();
+});
